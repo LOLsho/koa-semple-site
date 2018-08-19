@@ -1,0 +1,19 @@
+section.life
+  .container.life__container
+    h2.life__title Несколько чисел моей жизни
+    - var br = "<br/>"
+    .life__slogan У музыки нет возраста и нации, !{br} однажды мы уйдём, а она останется.
+    ul.life__skills
+      li.life__skill
+        .life__skill-number #{age}
+        .life__skill-text Возраст начала занятий на скрипке
+      li.life__skill
+        .life__skill-number #{concerts}
+        .life__skill-text Концертов отыграл
+      li.life__skill
+        .life__skill-number #{cities}
+        .life__skill-text Максимальное число городов в туре
+      li.life__skill
+        .life__skill-number #{years}
+        .life__skill-text Лет на сцене в качестве скрипача
+    a(href="http://").life__link Читать историю
