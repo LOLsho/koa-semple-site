@@ -12,7 +12,7 @@ module.exports = async(ctx, next) => {
 
       ctx.status = err.status || 500;
     ctx.body = err.message;
-    console.log(err);
+    console.log('err - ', err);
     ctx.app.emit('error', err, ctx);
   }
 };

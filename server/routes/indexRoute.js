@@ -14,10 +14,8 @@ const adminController = require('../controllers/admin');
 // Functions
 const isAdmin = (ctx, next) => {
     if (ctx.session.isAuthorized) {
-        console.log('authorized');
         next();
     } else {
-        console.log('not authorized');
         ctx.redirect('/login');
     }
 };
@@ -38,8 +36,8 @@ router.get('/login', loginController.get);
 router.post('/login', koaBody(), loginController.post);
 
 router.get('/admin', isAdmin, adminController.get);
-router.post('/admin/skills', koaBody(), adminController.skills);
-router.post('/admin/upload', koaBody({
+router.post('/admin/skills', isAdmin, koaBody(), adminController.skills);
+router.post('/admin/upload', isAdmin, koaBody({
     multipart: true,
     formidable: {
         uploadDir: path.join(process.cwd(), '../public/assets/img/products'),
